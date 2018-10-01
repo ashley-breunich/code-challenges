@@ -5,30 +5,30 @@ var assert = require('assert');
 
 describe('`Array.prototype.find` makes finding items in arrays easier', () => {
 
-    it('takes a compare function', function() {
-      const found = [true].find(item => item === true);
-      
-      assert.equal(found, true);
-    });
-  
-    it('returns the first value found', function() {
-      const found = [0, 1, 2].find(item => item > 1);
-  
-      assert.equal(found, 2);
-    });
-  
-    it('returns `undefined` when nothing was found', function() {
-      const found = [1, 3].find(item => item === 2);
-  
-      assert.equal(found, void 0);
-    });
-  
-    it('combined with destructuring complex compares become short', function() {
-      const bob = {name: 'Bob'};
-      const alice = {name: 'Alice'};
-      const found = [alice].find(({name}) => name);
-      
-      assert.equal(found, alice);
-    });
-  
+  it('takes a compare function', function() {
+    const found = [true].find(item => item === true);
+    
+    assert.equal(found, true);
   });
+
+  it('returns the first value found', function() {
+    const found = [0, 1, 2].find(item => item > 1);
+
+    assert.equal(found, 2);
+  });
+
+  it('returns `undefined` when nothing was found', function() {
+    const found = [1, 2, 3].find(item => item === 5);
+
+    assert.equal(found, void 0);
+  });
+
+  it('combined with destructuring complex compares become short', function() {
+    const bob = {name: 'Bob'};
+    const alice = {name: 'Alice'};
+    const found = [alice].find(({name}) => name);
+    
+    assert.equal(found, alice);
+  });
+
+});
